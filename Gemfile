@@ -4,6 +4,10 @@ gem 'rails', '4.2.3'
 
 gem 'mongoid', '~> 4.0.2'
 
+gem 'puma', '~> 2.11.3'
+
+gem 'foreman', '~> 0.78.0'
+
 gem 'sass-rails', '~> 5.0'
 
 gem 'uglifier', '>= 1.3.0'
@@ -19,8 +23,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'haml', '~> 4.0.6'
 gem 'haml-rails', '~> 0.9.0'
 
-gem 'sdoc', '~> 0.4.0', group: :doc
-
 group :development, :test do
   gem 'byebug'
 
@@ -28,3 +30,5 @@ group :development, :test do
 
   gem 'spring'
 end
+
+gem 'sdoc', '~> 0.4.0', group: :doc
