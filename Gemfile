@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'haml', '~> 4.0.6'
 gem 'haml-rails', '~> 0.9.0'
 
+gem 'pry-rails', '~> 0.3.4'
+
 group :development, :test do
   gem 'byebug'
 
