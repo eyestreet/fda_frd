@@ -29,6 +29,10 @@ gem 'pry-rails', '~> 0.3.4'
 
 gem 'rack-timeout', '~> 0.2.4'
 
+group :development do
+  gem 'mechanize', '~> 2.7.3'
+end
+
 group :development, :test do
   gem 'byebug'
 
