@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.2'
+
 gem 'rails', '4.2.3'
 
 gem 'mongoid', '~> 4.0.2'
@@ -30,5 +32,7 @@ group :development, :test do
 
   gem 'spring'
 end
+
+gem 'rails_12factor', group: :production
 
 gem 'sdoc', '~> 0.4.0', group: :doc
