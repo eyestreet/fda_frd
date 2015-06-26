@@ -1,0 +1,12 @@
+/Users/tmassing/.rbenv/versions/2.2.2/bin/ruby -r ./siteconf20150625-63343-7em85c.rb extconf.rb
+
+make "DESTDIR=" clean
+make: *** No rule to make target `clean'.  Stop.
+
+make "DESTDIR="
+echo "Nada."
+Nada.
+
+make "DESTDIR=" install
+echo "Nada."
+Nada.

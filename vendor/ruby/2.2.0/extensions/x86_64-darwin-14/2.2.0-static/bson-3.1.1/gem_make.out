@@ -1,0 +1,11 @@
+/Users/tmassing/.rbenv/versions/2.2.2/bin/ruby -r ./siteconf20150625-88865-rz6ypz.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling native.c
+linking shared-object native.bundle
+
+make "DESTDIR=" install
+/usr/local/bin/ginstall -c -m 0755 native.bundle ./.gem.20150625-88865-1sojgtu
