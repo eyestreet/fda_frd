@@ -64,8 +64,8 @@ class RecallEvent
   index({ event_id: 1,  recall_number: 1 }, { unique: true })
 
   validates :city, :classification, :code_info, :country, :distribution_pattern, :event_id, :initial_firm_notification,
-            :initiated_by, :product_description, :product_type, :reason_for_recall, :recall_initiation_date,
-            :recall_number, :recalling_firm, :report_date, :state, :status,
+            :initiated_by, :product_description, :product_type, :reason_for_recall, :recall_initiation_date, :recall_number,
+            :recalling_firm, :report_date, :status,
             presence: true
 
   # See https://api.fda.gov/food/enforcement.json\?\&count\=classification.exact
