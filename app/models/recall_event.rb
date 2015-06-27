@@ -5,6 +5,8 @@ class RecallEvent
 
   CLASSIFICATION_TYPES = ['Class I', 'Class II', 'Class III']
 
+  STATUS_TYPES = ['Completed', 'Ongoing', 'Terminated']
+
   # City
   field :city, type: String
 
@@ -66,4 +68,7 @@ class RecallEvent
 
   # See https://api.fda.gov/food/enforcement.json\?\&count\=classification.exact
   validates :classification, inclusion: { in: CLASSIFICATION_TYPES }
+
+  # See https://api.fda.gov/food/enforcement.json\?\&count\=status.exact
+  validates :status, inclusion: { in: STATUS_TYPES }
 end
