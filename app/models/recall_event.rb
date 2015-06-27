@@ -56,4 +56,9 @@ class RecallEvent
 
   # Status
   field :status, type: String
+
+  validates :city, :classification, :code_info, :country, :distribution_pattern, :event_id, :initial_firm_notification,
+            :initiated_by, :product_description, :product_quantity, :product_type, :reason_for_recall, :recall_initiation_date,
+            :recall_number, :recalling_firm, :report_date, :state, :status,
+            presence: true
 end
