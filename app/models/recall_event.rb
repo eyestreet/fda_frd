@@ -3,6 +3,8 @@ class RecallEvent
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  CLASSIFICATION_TYPES = ['Class I', 'Class II', 'Class III']
+
   # City
   field :city, type: String
 
@@ -61,4 +63,7 @@ class RecallEvent
             :initiated_by, :product_description, :product_quantity, :product_type, :reason_for_recall, :recall_initiation_date,
             :recall_number, :recalling_firm, :report_date, :state, :status,
             presence: true
+
+  # See https://api.fda.gov/food/enforcement.json\?\&count\=classification.exact
+  validates :classification, inclusion: { in: CLASSIFICATION_TYPES }
 end
