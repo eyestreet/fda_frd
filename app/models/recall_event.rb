@@ -1,6 +1,7 @@
 #
 class RecallEvent
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   # City
   field :city, type: String
