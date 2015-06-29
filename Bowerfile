@@ -1,3 +1,5 @@
 # -*- mode: ruby; -*-
 
+asset 'andlog', 'https://github.com/HenrikJoreteg/andlog.git'
+
 asset 'bootstrap-sass-official'
