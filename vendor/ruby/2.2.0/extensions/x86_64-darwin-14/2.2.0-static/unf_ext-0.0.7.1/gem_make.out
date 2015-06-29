@@ -1,0 +1,12 @@
+/Users/tmassing/.rbenv/versions/2.2.2/bin/ruby -r ./siteconf20150626-21316-11hbo3.rb extconf.rb
+checking for main() in -lstdc++... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling unf.cc
+linking shared-object unf_ext.bundle
+
+make "DESTDIR=" install
+/usr/local/bin/ginstall -c -m 0755 unf_ext.bundle ./.gem.20150626-21316-8hrckt
