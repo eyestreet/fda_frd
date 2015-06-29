@@ -1,19 +1,15 @@
-%h1 Listing recall_events
+%h1 Recall Events
 
 %table
   %thead
     %tr
       %th
       %th
-      %th
 
   %tbody
     - @recall_events.each do |recall_event|
       %tr
+        %td= recall_event.report_date
         %td= link_to 'Show', recall_event
-        %td= link_to 'Edit', edit_recall_event_path(recall_event)
-        %td= link_to 'Destroy', recall_event, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
-
-= link_to 'New Recall event', new_recall_event_path
+= paginate @recall_events

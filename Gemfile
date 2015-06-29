@@ -31,6 +31,8 @@ gem 'rack-timeout', '~> 0.2.4'
 
 gem 'geocoder', '~> 1.2.9'
 
+gem 'kaminari', '~> 0.16.3'
+
 group :development do
   gem 'mechanize', '~> 2.7.3'
 end
