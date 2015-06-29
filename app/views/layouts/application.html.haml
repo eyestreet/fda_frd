@@ -1,0 +1,19 @@
+!!!
+
+%html
+
+  %head
+
+    %title FDA Food Recall Dashboard
+
+    = favicon_link_tag
+
+    = stylesheet_link_tag 'application', media: 'all'
+
+    = javascript_include_tag 'application'
+
+    = csrf_meta_tags
+
+  %body
+
+    = yield
