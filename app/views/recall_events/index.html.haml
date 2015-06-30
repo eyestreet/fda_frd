@@ -1,19 +1,142 @@
-%h1 Listing recall_events
+.row
+  .col-lg-12
+    %h1.page-header FDA Food Recall Dashboard
 
-%table
-  %thead
-    %tr
-      %th
-      %th
-      %th
+.row
+  .col-lg-3.col-md-6
+    .panel.panel-default
+      .panel-heading
+        .row
+          .col-xs-5
+            -# %i.fa.fa-comments.fa-5x
+            .huge Total
+          .col-xs-7.text-right
+            .huge= @total_count
+      - if params[:classification].present?
+        = link_to root_url do
+          .panel-footer
+            %span.pull-left View All
+            %span.pull-right
+              %i.fa.fa-arrow-circle-right
+            .clearfix
 
-  %tbody
-    - @recall_events.each do |recall_event|
-      %tr
-        %td= link_to 'Show', recall_event
-        %td= link_to 'Edit', edit_recall_event_path(recall_event)
-        %td= link_to 'Destroy', recall_event, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  - if params[:classification].blank? || params[:classification] == 'class_one'
+    .col-lg-3.col-md-6
+      .panel.panel-info
+        .panel-heading
+          .row
+            .col-xs-6
+              -# %i.fa.fa-tasks.fa-5x
+              .huge Class I
+            .col-xs-6.text-right
+              #class_one_count.huge= @class_one_count
+        - if params[:classification].blank?
+          = link_to root_url( classification: :class_one) do
+            .panel-footer
+              %span.pull-left View Class I
+              %span.pull-right
+                %i.fa.fa-arrow-circle-right
+              .clearfix
 
-%br
+  - if params[:classification].blank? || params[:classification] == 'class_two'
+    .col-lg-3.col-md-6
+      .panel.panel-warning
+        .panel-heading
+          .row
+            .col-xs-6
+              -# %i.fa.fa-shopping-cart.fa-5x
+              .huge Class II
+            .col-xs-6.text-right
+              #class_two_count.huge= @class_two_count
+        - if params[:classification].blank?
+          = link_to root_url( classification: :class_two) do
+            .panel-footer
+              %span.pull-left View Class II
+              %span.pull-right
+                %i.fa.fa-arrow-circle-right
+              .clearfix
 
-= link_to 'New Recall event', new_recall_event_path
+  - if params[:classification].blank? || params[:classification] == 'class_three'
+    .col-lg-3.col-md-6
+      .panel.panel-danger
+        .panel-heading
+          .row
+            .col-xs-7
+              -# %i.fa.fa-support.fa-5x
+              .huge Class III
+            .col-xs-5.text-right
+              #class_three_count.huge= @class_three_count
+        - if params[:classification].blank?
+          = link_to root_url( classification: :class_three) do
+            .panel-footer
+              %span.pull-left View Class III
+              %span.pull-right
+                %i.fa.fa-arrow-circle-right
+              .clearfix
+
+.row
+  .col-lg-8
+    -# .panel.panel-default
+    -#   .panel-heading
+    -#     %i.fa.fa-map-marker.fa-fw
+    -#     Recall Event Distribution Pattern
+    -#   .panel-body
+    -#     #leaflet
+
+    .panel.panel-default
+      .panel-heading
+        %i.fa.fa-clock-o.fa-fw
+        Recall Event Timeline
+
+      .panel-body
+        %ul.timeline
+          - @recall_events.each do |recall_event|
+            %li{ class: "#{cycle '', 'timeline-inverted'}" }
+              .timeline-badge{ class: "#{classification_class recall_event}" }
+                %i= recall_event.classification.gsub('Class ', '')
+              .timeline-panel
+                .timeline-heading
+                  %h3.timeline-title= recall_event.recalling_firm
+                  %p
+                    %small.text-muted
+                      %i.fa.fa-clock-o
+                      = "Report Date: #{recall_event.report_date} Initiation Date: #{recall_event.recall_initiation_date}"
+                .timeline-body
+                  %h4 Reason For Recall
+                  %p= recall_event.reason_for_recall
+                  %br
+                  %h4 Product Description
+                  %p= recall_event.product_description
+                  %br
+                  %h4 Status
+                  %p= recall_event.status
+
+  .col-lg-4
+
+    - if params[:classification].blank?
+      .panel.panel-default
+        .panel-heading
+          %i.fa.fa-bar-chart-o.fa-fw
+          Recall Event Classification
+        .panel-body
+          #morris-donut-chart
+          -# %a.btn.btn-default.btn-block{:href => "#"} View Details
+
+    .panel.panel-default
+      .panel-heading
+        %i.fa.fa-bell.fa-fw
+        Recall Events
+
+      .panel-body
+        .list-group
+          - @recall_events.each do |recall_event|
+            %a.list-group-item
+              -# %i.fa.fa-comment.fa-fw
+              = recall_event.recalling_firm + ' - ' + recall_event.status
+              %span.pull-right.text-muted.small
+                %em= recall_event.report_date
+
+        -# %a.btn.btn-default.btn-block{:href => "#"} View All
+
+.row
+  .text-center= paginate @recall_events

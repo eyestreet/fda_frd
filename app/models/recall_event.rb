@@ -64,6 +64,7 @@ class RecallEvent
   embeds_many :locations, as: :locatable
 
   index 'locations.coordinates': '2d'
+  index classification: 1
 
   # index({ event_id: 1,  recall_number: 1 }, { unique: true })
 
@@ -76,4 +77,10 @@ class RecallEvent
 
   # See https://api.fda.gov/food/enforcement.json\?\&count\=status.exact
   validates :status, inclusion: { in: STATUS_TYPES }
+
+  scope :class_one, -> { where classification: CLASSIFICATION_TYPES[0] }
+  scope :class_two, -> { where classification: CLASSIFICATION_TYPES[1] }
+  scope :class_three, -> { where classification: CLASSIFICATION_TYPES[2] }
+
+  paginates_per 10
 end

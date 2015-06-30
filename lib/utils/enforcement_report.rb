@@ -154,6 +154,9 @@ Dir.glob('tmp/data/*.csv') do |file|
       code_info = row['Code Info']
       code_info += row['Code Info (Continued)'] if row['Code Info (Continued)'].present?
 
+      recall_initiation_date = Date.strptime(row['Recall Initiation Date'], '%m/%d/%Y') if row['Recall Initiation Date'].present?
+      report_date = Date.strptime(row['Report Date'], '%m/%d/%Y') if row['Report Date'].present?
+
       RecallEvent.create!(
         city: row['City'],
         classification: row['Classification'],
@@ -166,10 +169,10 @@ Dir.glob('tmp/data/*.csv') do |file|
         product_description: row['Product Description'],
         product_quantity: row[' Product Quantity'],
         reason_for_recall: row['Reason for Recall'],
-        recall_initiation_date: row['Recall Initiation Date'],
+        recall_initiation_date: recall_initiation_date,
         recall_number: row['Recall Number'],
         recalling_firm: row['Recalling Firm'],
-        report_date: row['Report Date'],
+        report_date: report_date,
         state: row['State'],
         status: row['Status'],
         initiated_by: row['Voluntary/Mandated'],

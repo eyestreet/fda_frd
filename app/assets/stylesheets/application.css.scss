@@ -1,0 +1,13 @@
+//= require_self
+//= require_tree .
+
+$icon-font-path: "bootstrap-sass-official/assets/fonts/bootstrap/";
+
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+
+@import "metisMenu/dist/metisMenu.css";
+@import "startbootstrap-sb-admin-2/dist/css/timeline.css";
+@import "startbootstrap-sb-admin-2/dist/css/sb-admin-2.css";
+@import "morrisjs/morris.css";
+@import "font-awesome/css/font-awesome.css";

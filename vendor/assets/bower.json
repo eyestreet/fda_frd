@@ -1,0 +1,8 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "andlog": "https://github.com/HenrikJoreteg/andlog.git",
+    "bootstrap-sass-official": "latest",
+    "startbootstrap-sb-admin-2": "latest"
+  }
+}

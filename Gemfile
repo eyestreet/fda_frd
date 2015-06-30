@@ -18,7 +18,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'jquery-rails'
 
-gem 'turbolinks'
+gem 'bower-rails', '~> 0.9.2'
 
 gem 'jbuilder', '~> 2.0'
 
@@ -30,6 +30,8 @@ gem 'pry-rails', '~> 0.3.4'
 gem 'rack-timeout', '~> 0.2.4'
 
 gem 'geocoder', '~> 1.2.9'
+
+gem 'kaminari', '~> 0.16.3'
 
 group :development do
   gem 'mechanize', '~> 2.7.3'
