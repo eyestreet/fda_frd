@@ -45,6 +45,10 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'rails_12factor'
+
+  gem 'execjs', '~> 2.5.2'
+end
 
 gem 'sdoc', '~> 0.4.0', group: :doc
