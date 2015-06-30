@@ -1,0 +1,11 @@
+{
+    "name": "fda-frd",
+    "devDependencies" : {
+        "bower": "~1.4.1"
+    },
+    "dependencies": {
+    },
+    "engines": {
+        "node": ">= 0.10"
+    }
+}
