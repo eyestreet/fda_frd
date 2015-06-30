@@ -4,7 +4,23 @@ class RecallEventsController < ApplicationController
   # GET /recall_events
   # GET /recall_events.json
   def index
+    @total_count = RecallEvent.count
+    @class_one_count = RecallEvent.class_one.count
+    @class_two_count = RecallEvent.class_two.count
+    @class_three_count = RecallEvent.class_three.count
+
     @recall_events = RecallEvent.all.order(report_date: :desc).page(params[:page])
+
+    if params[:classification].present?
+      @recall_events = case params[:classification].to_sym
+                       when :class_one
+                         @recall_events.class_one
+                       when :class_two
+                         @recall_events.class_two
+                       when :class_three
+                         @recall_events.class_three
+                       end
+    end
   end
 
   # GET /recall_events/1

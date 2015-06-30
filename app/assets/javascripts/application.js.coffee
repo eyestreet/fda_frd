@@ -8,4 +8,14 @@
 
 #= require bootstrap-sass-official/assets/javascripts/bootstrap-sprockets
 
+#= require metisMenu
+
+#= require raphael
+
+#= require morrisjs
+
+#= require flot
+
+#= startbootstrap-sb-admin-2/dist/js/sb-admin-2
+
 #= require_tree .

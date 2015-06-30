@@ -1,19 +1,54 @@
 !!!
 
-%html
+%html{ lang: 'en' }
 
   %head
 
-    %title FDA Food Recall Dashboard
-
     = favicon_link_tag
 
-    = stylesheet_link_tag 'application', media: 'all'
+    %meta{ charset: 'utf-8' }
+    %meta{ 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' }
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
 
-    = javascript_include_tag 'application'
+    %title FDA Food Recall Dashboard
+
+    = stylesheet_link_tag 'application', media: 'all'
 
     = csrf_meta_tags
 
   %body
 
-    = yield
+    #wrapper
+
+      %nav.navbar.navbar-default.navbar-static-top{ role: "navigation", style: "margin-bottom: 0" }
+        .navbar-header
+          %button.navbar-toggle{ "data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button" }
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+
+          = link_to 'FDA Food Recall Dashboard', root_url, class: 'navbar-brand'
+
+        .navbar-default.sidebar{ role: "navigation" }
+          .sidebar-nav.navbar-collapse
+            %ul#side-menu.nav
+              -# %li.sidebar-search
+              -#   .input-group.custom-search-form
+              -#     %input.form-control{:placeholder => "Search...", :type => "text"}/
+              -#     %span.input-group-btn
+              -#       %button.btn.btn-default{:type => "button"}
+              -#         %i.fa.fa-search
+              %li
+                = link_to root_url do
+                  %i.fa.fa-dashboard.fa-fw
+                  Dashboard
+
+              -# %li
+              -#   = link_to root_url do
+              -#     %i.fa.fa-question-circle.fa-fw
+              -#     About
+
+      #page-wrapper= yield
+
+    = javascript_include_tag 'application'
