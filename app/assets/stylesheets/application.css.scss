@@ -1,4 +1,11 @@
+//= require metisMenu/dist/metisMenu
+//= require startbootstrap-sb-admin-2/dist/css/timeline
+//= require startbootstrap-sb-admin-2/dist/css/sb-admin-2
+//= require morrisjs/morris
+//= require font-awesome/css/font-awesome
+
 //= require_self
+
 //= require_tree .
 
 $icon-font-path: "bootstrap-sass-official/assets/fonts/bootstrap/";
@@ -6,8 +13,13 @@ $icon-font-path: "bootstrap-sass-official/assets/fonts/bootstrap/";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
-@import "metisMenu/dist/metisMenu.css";
-@import "startbootstrap-sb-admin-2/dist/css/timeline.css";
-@import "startbootstrap-sb-admin-2/dist/css/sb-admin-2.css";
-@import "morrisjs/morris.css";
-@import "font-awesome/css/font-awesome.css";
+@font-face {
+  font-family: 'FontAwesome';
+  src: font-url('font-awesome/fonts/fontawesome-webfont.eot?v=4.0.3');
+  src: font-url('font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'),
+  font-url('font-awesome/fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'),
+  font-url('font-awesome/fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'),
+  font-url('font-awesome/fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
