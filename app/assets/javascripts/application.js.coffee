@@ -18,4 +18,6 @@
 
 #= startbootstrap-sb-admin-2/dist/js/sb-admin-2
 
+#= require leaflet.markercluster/dist/leaflet.markercluster
+
 #= require_tree .

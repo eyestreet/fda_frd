@@ -75,13 +75,15 @@
               .clearfix
 
 .row
+
   .col-lg-8
-    -# .panel.panel-default
-    -#   .panel-heading
-    -#     %i.fa.fa-map-marker.fa-fw
-    -#     Recall Event Distribution Pattern
-    -#   .panel-body
-    -#     #leaflet
+
+    .panel.panel-default
+      .panel-heading
+        %i.fa.fa-map-marker.fa-fw
+        Recall Event Distribution Pattern
+      .panel-body
+        #map
 
     .panel.panel-default
       .panel-heading
@@ -91,7 +93,7 @@
       .panel-body
         %ul.timeline
           - @recall_events.each do |recall_event|
-            %li{ class: "#{cycle '', 'timeline-inverted'}" }
+            %li.recall_event{ class: "#{cycle '', 'timeline-inverted'}", data: { locations: recall_event.locations.to_json } }
               .timeline-badge{ class: "#{classification_class recall_event}" }
                 %i= recall_event.classification.gsub('Class ', '')
               .timeline-panel
@@ -103,13 +105,15 @@
                       = "Report Date: #{recall_event.report_date} Initiation Date: #{recall_event.recall_initiation_date}"
                 .timeline-body
                   %h4 Reason For Recall
-                  %p= recall_event.reason_for_recall
+                  %p.reason= recall_event.reason_for_recall
                   %br
                   %h4 Product Description
-                  %p= recall_event.product_description
+                  %p.description= recall_event.product_description
                   %br
                   %h4 Status
                   %p= recall_event.status
+                  %h4 Locations
+                  %p.locations= recall_event.locations.pluck(:long_name).to_sentence
 
   .col-lg-4
 

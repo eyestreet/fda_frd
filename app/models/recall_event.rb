@@ -82,5 +82,5 @@ class RecallEvent
   scope :class_two, -> { where classification: CLASSIFICATION_TYPES[1] }
   scope :class_three, -> { where classification: CLASSIFICATION_TYPES[2] }
 
-  paginates_per 10
+  paginates_per 25
 end
