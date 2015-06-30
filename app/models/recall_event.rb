@@ -64,6 +64,7 @@ class RecallEvent
   embeds_many :locations, as: :locatable
 
   index 'locations.coordinates': '2d'
+  index classification: 1
 
   # index({ event_id: 1,  recall_number: 1 }, { unique: true })
 
