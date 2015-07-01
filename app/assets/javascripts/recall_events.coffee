@@ -12,21 +12,30 @@ $ ->
     showCoverageOnHover: false
     maxClusterRadius: 30
 
-  $('.recall_event').each (index, element) ->
+  # index map
+  if $('.recall_event').length
 
-    recall_event = $(element)
+    $('.recall_event').each (index, element) ->
 
-    popup_text = "<h5>#{ recall_event.find('h3.timeline-title').html() }</h5><p>#{ recall_event.find('.timeline-body p.reason').html() }</p><p>#{ recall_event.find('.timeline-body p.description').html() }</p><p>#{ recall_event.find('.timeline-body p.description').html() }</p><p>#{ recall_event.find('.timeline-body p.locations').html() }</p>"
+      recall_event = $(element)
 
-    console.log popup_text
+      popup_text = "<h5>#{ recall_event.find('h3.timeline-title').html() }</h5><p>#{ recall_event.find('.timeline-body p.reason').html() }</p><p>#{ recall_event.find('.timeline-body p.description').html() }</p><p>#{ recall_event.find('.timeline-body p.description').html() }</p><p>#{ recall_event.find('.timeline-body p.locations').html() }</p>"
 
-    for location in recall_event.data('locations')
-      console.log location
+      console.log popup_text
 
-      marker = new L.marker([location.coordinates[1], location.coordinates[0]])
+      for location in recall_event.data('locations')
+        console.log location
 
-      marker.bindPopup popup_text
+        marker = new L.marker([location.coordinates[1], location.coordinates[0]])
 
-      markers.addLayer marker
+        marker.bindPopup popup_text
 
-  map.addLayer markers
+        markers.addLayer marker
+
+    map.addLayer markers
+
+  # show map
+  if $('h4.locations').length
+
+    for location in $('h4.locations').data('locations')
+      L.marker([location.coordinates[1], location.coordinates[0]]).addTo map

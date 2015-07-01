@@ -98,7 +98,7 @@
                 %i= recall_event.classification.gsub('Class ', '')
               .timeline-panel
                 .timeline-heading
-                  %h3.timeline-title= recall_event.recalling_firm
+                  %h3.timeline-title= link_to recall_event.recalling_firm, recall_event
                   %p
                     %small.text-muted
                       %i.fa.fa-clock-o
@@ -134,11 +134,12 @@
       .panel-body
         .list-group
           - @recall_events.each do |recall_event|
-            %a.list-group-item
+            = link_to recall_event, class: 'list-group-item' do
+              -# %a.list-group-item
               -# %i.fa.fa-comment.fa-fw
               = recall_event.recalling_firm + ' - ' + recall_event.status
               %span.pull-right.text-muted.small
-                %em= recall_event.report_date
+                %em= "#{recall_event.recall_number} - #{recall_event.report_date}"
 
         -# %a.btn.btn-default.btn-block{:href => "#"} View All
 

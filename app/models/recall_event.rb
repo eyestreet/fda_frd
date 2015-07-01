@@ -82,4 +82,17 @@ class RecallEvent
   scope :class_three, -> { where classification: CLASSIFICATION_TYPES[2] }
 
   paginates_per 25
+
+  # TODO: Update these to be defined using metaprogramming
+  def class_one?
+    classification == CLASSIFICATION_TYPES[0]
+  end
+
+  def class_two?
+    classification == CLASSIFICATION_TYPES[1]
+  end
+
+  def class_three?
+    classification == CLASSIFICATION_TYPES[2]
+  end
 end
