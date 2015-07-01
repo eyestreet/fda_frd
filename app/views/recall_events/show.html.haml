@@ -64,13 +64,4 @@
       .panel-heading
         %i.fa.fa-compress.fa-fw
         Related Recall Events
-      .panel-body
-        - if @related_recall_events.present?
-          .list-group
-            - @related_recall_events.each do |recall_event|
-              = link_to recall_event, class: 'list-group-item' do
-                = recall_event.recalling_firm + ' - ' + recall_event.status
-                %span.pull-right.text-muted.small
-                  %em= "#{recall_event.recall_number} - #{recall_event.report_date}"
-        - else
-          %p No related Recall Events found.
+      = render partial: 'event_panel', locals: { title: '', icon: '', recall_events: @related_recall_events }
