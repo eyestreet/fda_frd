@@ -9,7 +9,7 @@ class RecallEventsController < ApplicationController
     @class_two_count = RecallEvent.class_two.count
     @class_three_count = RecallEvent.class_three.count
 
-    @recall_events = RecallEvent.all.order(report_date: :desc).page(params[:page])
+    @recall_events = RecallEvent.all.order(report_date: :desc, recall_number: :desc).page(params[:page])
 
     if params[:classification].present?
       @recall_events = case params[:classification].to_sym
@@ -26,6 +26,7 @@ class RecallEventsController < ApplicationController
   # GET /recall_events/1
   # GET /recall_events/1.json
   def show
+    @related_recall_events = RecallEvent.where(:id.ne => @recall_event.id, recalling_firm: @recall_event.recalling_firm).order(report_date: :desc, recall_number: :desc)
   end
 
   # GET /recall_events/new
@@ -34,8 +35,8 @@ class RecallEventsController < ApplicationController
   # end
 
   # GET /recall_events/1/edit
-  def edit
-  end
+  # def edit
+  # end
 
   # POST /recall_events
   # POST /recall_events.json

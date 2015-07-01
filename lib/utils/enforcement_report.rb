@@ -39,7 +39,7 @@
 # geo_data = {}
 # state_data.keys.each do |state|
 #   puts state
-#   r = Geocoder.search "#{state}, USA"
+#   r = Geocoder.search "state #{state}, USA"
 #   pp r
 #   geo_data[state] = r
 #   sleep 2
@@ -151,6 +151,9 @@ Dir.glob('tmp/data/*.csv') do |file|
     # puts "row: #{row}"
 
     if row['Product Type'] == 'Food'
+
+      next if RecallEvent.where(event_id: row['Event ID'], recall_number: row['Recall Number']).exists?
+
       code_info = row['Code Info']
       code_info += row['Code Info (Continued)'] if row['Code Info (Continued)'].present?
 

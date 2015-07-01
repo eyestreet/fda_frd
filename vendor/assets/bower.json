@@ -3,6 +3,7 @@
   "dependencies": {
     "andlog": "https://github.com/HenrikJoreteg/andlog.git",
     "bootstrap-sass-official": "latest",
+    "leaflet.markercluster": "latest",
     "startbootstrap-sb-admin-2": "latest"
   }
 }

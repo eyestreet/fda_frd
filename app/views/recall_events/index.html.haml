@@ -75,13 +75,15 @@
               .clearfix
 
 .row
+
   .col-lg-8
-    -# .panel.panel-default
-    -#   .panel-heading
-    -#     %i.fa.fa-map-marker.fa-fw
-    -#     Recall Event Distribution Pattern
-    -#   .panel-body
-    -#     #leaflet
+
+    .panel.panel-default
+      .panel-heading
+        %i.fa.fa-map-marker.fa-fw
+        Recall Event Distribution Pattern
+      .panel-body
+        #map
 
     .panel.panel-default
       .panel-heading
@@ -91,25 +93,27 @@
       .panel-body
         %ul.timeline
           - @recall_events.each do |recall_event|
-            %li{ class: "#{cycle '', 'timeline-inverted'}" }
+            %li.recall_event{ class: "#{cycle '', 'timeline-inverted'}", data: { locations: recall_event.locations.to_json } }
               .timeline-badge{ class: "#{classification_class recall_event}" }
                 %i= recall_event.classification.gsub('Class ', '')
               .timeline-panel
                 .timeline-heading
-                  %h3.timeline-title= recall_event.recalling_firm
+                  %h3.timeline-title= link_to recall_event.recalling_firm, recall_event
                   %p
                     %small.text-muted
                       %i.fa.fa-clock-o
                       = "Report Date: #{recall_event.report_date} Initiation Date: #{recall_event.recall_initiation_date}"
                 .timeline-body
                   %h4 Reason For Recall
-                  %p= recall_event.reason_for_recall
+                  %p.reason= recall_event.reason_for_recall
                   %br
                   %h4 Product Description
-                  %p= recall_event.product_description
+                  %p.description= recall_event.product_description
                   %br
                   %h4 Status
                   %p= recall_event.status
+                  %h4 Locations
+                  %p.locations= recall_event.locations.pluck(:long_name).to_sentence
 
   .col-lg-4
 
@@ -122,21 +126,7 @@
           #morris-donut-chart
           -# %a.btn.btn-default.btn-block{:href => "#"} View Details
 
-    .panel.panel-default
-      .panel-heading
-        %i.fa.fa-bell.fa-fw
-        Recall Events
-
-      .panel-body
-        .list-group
-          - @recall_events.each do |recall_event|
-            %a.list-group-item
-              -# %i.fa.fa-comment.fa-fw
-              = recall_event.recalling_firm + ' - ' + recall_event.status
-              %span.pull-right.text-muted.small
-                %em= recall_event.report_date
-
-        -# %a.btn.btn-default.btn-block{:href => "#"} View All
+    = render partial: 'event_panel', locals: { title: 'Recall Events', icon: 'fa-bell', recall_events: @recall_events }
 
 .row
   .text-center= paginate @recall_events
