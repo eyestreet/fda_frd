@@ -63,10 +63,9 @@ class RecallEvent
 
   embeds_many :locations, as: :locatable
 
-  index 'locations.coordinates': '2d'
   index classification: 1
-
-  # index({ event_id: 1,  recall_number: 1 }, { unique: true })
+  index({ event_id: 1,  recall_number: 1 }, unique: true)
+  index 'locations.coordinates': '2d'
 
   validates :classification, :code_info, :distribution_pattern, :event_id, :initiated_by, :product_description, :product_type,
             :recall_number, :recalling_firm, :status,
