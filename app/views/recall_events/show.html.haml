@@ -60,8 +60,4 @@
 
   .col-lg-4
 
-    .panel.panel-default
-      .panel-heading
-        %i.fa.fa-compress.fa-fw
-        Related Recall Events
-      = render partial: 'event_panel', locals: { title: '', icon: '', recall_events: @related_recall_events }
+    = render partial: 'event_panel', locals: { title: 'Related Recall Events', icon: 'fa-compress', recall_events: @related_recall_events }
