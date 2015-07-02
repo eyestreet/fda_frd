@@ -5,9 +5,14 @@ class RecallEventsController < ApplicationController
   # GET /recall_events.json
   def index
     @total_count = RecallEvent.count
+
     @class_one_count = RecallEvent.class_one.count
     @class_two_count = RecallEvent.class_two.count
     @class_three_count = RecallEvent.class_three.count
+
+    @completed_count = RecallEvent.completed.count
+    @ongoing_count = RecallEvent.ongoing.count
+    @terminated_count = RecallEvent.terminated.count
 
     @recall_events = RecallEvent.all.order(report_date: :desc, recall_number: :desc).page(params[:page])
 

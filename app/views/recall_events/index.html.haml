@@ -123,7 +123,15 @@
           %i.fa.fa-bar-chart-o.fa-fw
           Recall Event Classification
         .panel-body
-          #morris-donut-chart
+          #recall-event-classification
+          -# %a.btn.btn-default.btn-block{:href => "#"} View Details
+
+      .panel.panel-default
+        .panel-heading
+          %i.fa.fa-bar-chart-o.fa-fw
+          Recall Event Status
+        .panel-body
+          #recall-event-status{ data: { completed_count: @completed_count, ongoing_count: @ongoing_count, terminated_count: @terminated_count } }
           -# %a.btn.btn-default.btn-block{:href => "#"} View Details
 
     = render partial: 'event_panel', locals: { title: 'Recall Events', icon: 'fa-bell', recall_events: @recall_events }

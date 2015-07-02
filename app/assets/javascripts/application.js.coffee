@@ -20,4 +20,6 @@
 
 #= require leaflet.markercluster/dist/leaflet.markercluster
 
+#= require sb-admin-2
+
 #= require_tree .

@@ -81,6 +81,10 @@ class RecallEvent
   scope :class_two, -> { where classification: CLASSIFICATION_TYPES[1] }
   scope :class_three, -> { where classification: CLASSIFICATION_TYPES[2] }
 
+  scope :completed, -> { where status: STATUS_TYPES[0] }
+  scope :ongoing, -> { where status: STATUS_TYPES[1] }
+  scope :terminated, -> { where status: STATUS_TYPES[2] }
+
   paginates_per 25
 
   # TODO: Update these to be defined using metaprogramming
