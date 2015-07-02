@@ -72,6 +72,7 @@ GEM
       haml (>= 4.0.6, < 5.0)
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
+    high_voltage (2.3.0)
     html2haml (2.0.0)
       erubis (~> 2.7.0)
       haml (~> 4.0.0)
@@ -219,6 +220,7 @@ DEPENDENCIES
   geocoder (~> 1.2.9)
   haml (~> 4.0.6)
   haml-rails (~> 0.9.0)
+  high_voltage (~> 2.3.0)
   jbuilder (~> 2.0)
   jquery-rails
   kaminari (~> 0.16.3)

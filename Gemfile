@@ -33,6 +33,8 @@ gem 'geocoder', '~> 1.2.9'
 
 gem 'kaminari', '~> 0.16.3'
 
+gem 'high_voltage', '~> 2.3.0'
+
 group :development do
   gem 'mechanize', '~> 2.7.3'
 end

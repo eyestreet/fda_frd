@@ -23,13 +23,25 @@
 
       %nav.navbar.navbar-default.navbar-static-top{ role: "navigation", style: "margin-bottom: 0" }
         .navbar-header
-          %button.navbar-toggle{ "data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button" }
+          %button.navbar-toggle{ type: "button", data: { target: '.navbar-collapse', toggle: 'collapse' } }
             %span.sr-only Toggle navigation
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
 
           = link_to 'FDA Food Recall Dashboard', root_url, class: 'navbar-brand'
+
+        %ul.nav.navbar-top-links.navbar-right
+          %li.dropdown
+            %a.dropdown-toggle{ href: '#', data: { toggle: 'dropdown' } }
+              %i.fa.fa-user.fa-fw
+              %i.fa.fa-caret-down
+            %ul.dropdown-menu.dropdown-user
+              %li
+                %a{ href: '#' }
+                = link_to page_path('about') do
+                  %i.fa.fa-question.fa-fw
+                  About
 
         .navbar-default.sidebar{ role: "navigation" }
           .sidebar-nav.navbar-collapse

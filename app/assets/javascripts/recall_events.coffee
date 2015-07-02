@@ -2,15 +2,17 @@ $ ->
 
   console.log 'recall_events'
 
-  map = L.map('map', { maxZoom: 5 }).setView [37.09024, -95.712891], 4
+  if $('.recall_event').length || $('h4.locations').length
 
-  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo map
+    map = L.map('map', { maxZoom: 5 }).setView [37.09024, -95.712891], 4
 
-  markers = new L.MarkerClusterGroup
-    showCoverageOnHover: false
-    maxClusterRadius: 30
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo map
+
+    markers = new L.MarkerClusterGroup
+      showCoverageOnHover: false
+      maxClusterRadius: 30
 
   # index map
   if $('.recall_event').length
