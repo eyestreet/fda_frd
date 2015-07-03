@@ -68,3 +68,4 @@ $ ->
       labels: ['Count']
       hideHover: 'auto'
       resize: true
+      xLabelAngle: 60
