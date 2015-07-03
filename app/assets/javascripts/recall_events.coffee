@@ -21,7 +21,7 @@ $ ->
 
       recall_event = $(element)
 
-      popup_text = "<h5>#{ recall_event.find('h3.timeline-title').html() }</h5><p>#{ recall_event.find('.timeline-body p.reason').html() }</p><p>#{ recall_event.find('.timeline-body p.description').html() }</p><p>#{ recall_event.find('.timeline-body p.locations').html() }</p>"
+      popup_text = "<h5>#{ recall_event.find('h3.timeline-title').html() }</h5><p>#{ recall_event.find('.timeline-body p.reason').html().trimToLength() }</p><p>#{ recall_event.find('.timeline-body p.description').html().trimToLength() }</p><p>#{ recall_event.find('.timeline-body p.locations').html() }</p>"
 
       console.log popup_text
 
