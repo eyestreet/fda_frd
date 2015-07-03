@@ -2,7 +2,7 @@ $ ->
 
   console.log 'recall_events'
 
-  if $('.recall_event').length || $('h4.locations').length
+  if $('#map').length
 
     map = L.map('map', { maxZoom: 5 }).setView [37.09024, -95.712891], 4
 
@@ -15,7 +15,7 @@ $ ->
       maxClusterRadius: 30
 
   # index map
-  if $('.recall_event').length
+  if $('#map').length && $('.recall_event').length
 
     $('.recall_event').each (index, element) ->
 
@@ -37,7 +37,7 @@ $ ->
     map.addLayer markers
 
   # show map
-  if $('h4.locations').length
+  if $('#map').length && $('h4.locations').length
 
     for location in $('h4.locations').data('locations')
       L.marker([location.coordinates[1], location.coordinates[0]]).addTo map
