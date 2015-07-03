@@ -2,11 +2,17 @@
   .col-lg-12
     %h1.page-header FDA Food Recall Dashboard
 
-- if params[:location]
+- if params[:location].present? || @report_date.present?
 
-  .row
-    .col-lg-12
-      %h1= "Location: #{Location::US.invert[params[:location]]}"
+  - if params[:location].present?
+    .row
+      .col-lg-12
+        %h1= "Location: #{Location::US.invert[params[:location]]}"
+
+  - if @report_date.present?
+    .row
+      .col-lg-12
+        %h1= "Report Date: #{ l @report_date, format: :long }"
 
 - else
 
@@ -127,7 +133,7 @@
 
   .col-lg-4
 
-    - if params[:classification].blank? && params[:location].blank?
+    - if params[:classification].blank? && params[:location].blank? && @report_date.blank?
       .panel.panel-default
         .panel-heading
           %i.fa.fa-bar-chart-o.fa-fw

@@ -46,26 +46,6 @@
                   %i.fa.fa-question.fa-fw
                   About
 
-        .navbar-default.sidebar{ role: "navigation" }
-          .sidebar-nav.navbar-collapse
-            %ul#side-menu.nav
-              -# %li.sidebar-search
-              -#   .input-group.custom-search-form
-              -#     %input.form-control{:placeholder => "Search...", :type => "text"}/
-              -#     %span.input-group-btn
-              -#       %button.btn.btn-default{:type => "button"}
-              -#         %i.fa.fa-search
-              %li
-                = link_to root_url do
-                  %i.fa.fa-dashboard.fa-fw
-                  Dashboard
-              %li
-                = link_to '#' do
-                  %i.fa.fa-map-marker.fa-fw
-                  Locations
-                  %span.fa.arrow
-                %ul.nav.nav-second-level
-                  - Location::US.each do |k, v|
-                    %li= link_to k, root_url(location: v)
+        = render partial: 'shared/sidebar'
 
       #page-wrapper= yield
