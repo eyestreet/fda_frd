@@ -2,7 +2,7 @@ $ ->
 
   console.log 'recall_events'
 
-  if $('.recall_event').length || $('h4.locations').length
+  if $('#map').length
 
     map = L.map('map', { maxZoom: 5 }).setView [37.09024, -95.712891], 4
 
@@ -15,13 +15,13 @@ $ ->
       maxClusterRadius: 30
 
   # index map
-  if $('.recall_event').length
+  if $('#map').length && $('.recall_event').length
 
     $('.recall_event').each (index, element) ->
 
       recall_event = $(element)
 
-      popup_text = "<h5>#{ recall_event.find('h3.timeline-title').html() }</h5><p>#{ recall_event.find('.timeline-body p.reason').html() }</p><p>#{ recall_event.find('.timeline-body p.description').html() }</p><p>#{ recall_event.find('.timeline-body p.locations').html() }</p>"
+      popup_text = "<h5>#{ recall_event.find('h3.timeline-title').html() }</h5><p>#{ recall_event.find('.timeline-body p.reason').html().trimToLength() }</p><p>#{ recall_event.find('.timeline-body p.description').html().trimToLength() }</p><p>#{ recall_event.find('.timeline-body p.locations').html() }</p>"
 
       console.log popup_text
 
@@ -37,7 +37,7 @@ $ ->
     map.addLayer markers
 
   # show map
-  if $('h4.locations').length
+  if $('#map').length && $('h4.locations').length
 
     for location in $('h4.locations').data('locations')
       L.marker([location.coordinates[1], location.coordinates[0]]).addTo map
@@ -68,3 +68,4 @@ $ ->
       labels: ['Count']
       hideHover: 'auto'
       resize: true
+      xLabelAngle: 60

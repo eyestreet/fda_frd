@@ -26,6 +26,14 @@ class RecallEventsController < ApplicationController
                          @recall_events.class_three
                        end
     end
+
+    @recall_events = @recall_events.where('locations.short_name': params[:location]) if params[:location].present?
+
+    if params[:year].present? && params[:month].present? && params[:day].present?
+      @report_date = Date.parse "#{params[:year]}-#{params[:month]}-#{params[:day]}"
+
+      @recall_events = @recall_events.where report_date: @report_date
+    end
   end
 
   # GET /recall_events/1

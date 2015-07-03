@@ -23,3 +23,16 @@
 #= require sb-admin-2
 
 #= require_tree .
+
+$ ->
+
+  element = $('ul.nav a').filter( ->
+    url = window.location
+
+    @.href == url || url.href.indexOf(@.href) == 0
+  ).addClass('active').parent().parent().addClass('in').parent()
+
+  if element.is 'li'
+    element.addClass('active')
+
+  $('#side-menu').metisMenu()
