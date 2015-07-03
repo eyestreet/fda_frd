@@ -23,3 +23,7 @@
 #= require sb-admin-2
 
 #= require_tree .
+
+$ ->
+
+  $('#side-menu').metisMenu()

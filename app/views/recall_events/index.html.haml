@@ -2,88 +2,98 @@
   .col-lg-12
     %h1.page-header FDA Food Recall Dashboard
 
-.row
-  .col-lg-3.col-md-6
-    .panel.panel-default
-      .panel-heading
-        .row
-          .col-xs-5
-            -# %i.fa.fa-comments.fa-5x
-            .huge Total
-          .col-xs-7.text-right
-            .huge= @total_count
-      - if params[:classification].present?
-        = link_to root_url do
-          .panel-footer
-            %span.pull-left View All
-            %span.pull-right
-              %i.fa.fa-arrow-circle-right
-            .clearfix
+- if params[:location]
 
-  - if params[:classification].blank? || params[:classification] == 'class_one'
+  .row
+    .col-lg-12
+      %h1= "Location: #{Location::US.invert[params[:location]]}"
+
+- else
+
+  .row
     .col-lg-3.col-md-6
-      .panel.panel-info
+      .panel.panel-default
         .panel-heading
           .row
-            .col-xs-6
-              -# %i.fa.fa-tasks.fa-5x
-              .huge Class I
-            .col-xs-6.text-right
-              #class_one_count.huge= @class_one_count
-        - if params[:classification].blank?
-          = link_to root_url( classification: :class_one) do
+            .col-xs-5
+              -# %i.fa.fa-comments.fa-5x
+              .huge Total
+            .col-xs-7.text-right
+              .huge= @total_count
+        - if params[:classification].present?
+          = link_to root_url do
             .panel-footer
-              %span.pull-left View Class I
+              %span.pull-left View All
               %span.pull-right
                 %i.fa.fa-arrow-circle-right
               .clearfix
 
-  - if params[:classification].blank? || params[:classification] == 'class_two'
-    .col-lg-3.col-md-6
-      .panel.panel-warning
-        .panel-heading
-          .row
-            .col-xs-6
-              -# %i.fa.fa-shopping-cart.fa-5x
-              .huge Class II
-            .col-xs-6.text-right
-              #class_two_count.huge= @class_two_count
-        - if params[:classification].blank?
-          = link_to root_url( classification: :class_two) do
-            .panel-footer
-              %span.pull-left View Class II
-              %span.pull-right
-                %i.fa.fa-arrow-circle-right
-              .clearfix
+    - if params[:classification].blank? || params[:classification] == 'class_one'
+      .col-lg-3.col-md-6
+        .panel.panel-info
+          .panel-heading
+            .row
+              .col-xs-6
+                -# %i.fa.fa-tasks.fa-5x
+                .huge Class I
+              .col-xs-6.text-right
+                #class_one_count.huge= @class_one_count
+          - if params[:classification].blank?
+            = link_to root_url( classification: :class_one) do
+              .panel-footer
+                %span.pull-left View Class I
+                %span.pull-right
+                  %i.fa.fa-arrow-circle-right
+                .clearfix
 
-  - if params[:classification].blank? || params[:classification] == 'class_three'
-    .col-lg-3.col-md-6
-      .panel.panel-danger
-        .panel-heading
-          .row
-            .col-xs-7
-              -# %i.fa.fa-support.fa-5x
-              .huge Class III
-            .col-xs-5.text-right
-              #class_three_count.huge= @class_three_count
-        - if params[:classification].blank?
-          = link_to root_url( classification: :class_three) do
-            .panel-footer
-              %span.pull-left View Class III
-              %span.pull-right
-                %i.fa.fa-arrow-circle-right
-              .clearfix
+    - if params[:classification].blank? || params[:classification] == 'class_two'
+      .col-lg-3.col-md-6
+        .panel.panel-warning
+          .panel-heading
+            .row
+              .col-xs-6
+                -# %i.fa.fa-shopping-cart.fa-5x
+                .huge Class II
+              .col-xs-6.text-right
+                #class_two_count.huge= @class_two_count
+          - if params[:classification].blank?
+            = link_to root_url( classification: :class_two) do
+              .panel-footer
+                %span.pull-left View Class II
+                %span.pull-right
+                  %i.fa.fa-arrow-circle-right
+                .clearfix
+
+    - if params[:classification].blank? || params[:classification] == 'class_three'
+      .col-lg-3.col-md-6
+        .panel.panel-danger
+          .panel-heading
+            .row
+              .col-xs-7
+                -# %i.fa.fa-support.fa-5x
+                .huge Class III
+              .col-xs-5.text-right
+                #class_three_count.huge= @class_three_count
+          - if params[:classification].blank?
+            = link_to root_url( classification: :class_three) do
+              .panel-footer
+                %span.pull-left View Class III
+                %span.pull-right
+                  %i.fa.fa-arrow-circle-right
+                .clearfix
 
 .row
 
   .col-lg-8
 
-    .panel.panel-default
-      .panel-heading
-        %i.fa.fa-map-marker.fa-fw
-        Recall Event Distribution Pattern
-      .panel-body
-        #map
+    - if params[:location].blank?
+
+      .panel.panel-default
+        .panel-heading
+          %i.fa.fa-map-marker.fa-fw
+          Recall Event Distribution Pattern
+        .panel-body
+          #map
 
     .panel.panel-default
       .panel-heading
@@ -117,7 +127,7 @@
 
   .col-lg-4
 
-    - if params[:classification].blank?
+    - if params[:classification].blank? && params[:location].blank?
       .panel.panel-default
         .panel-heading
           %i.fa.fa-bar-chart-o.fa-fw

@@ -15,6 +15,9 @@
     = stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css'
     = stylesheet_link_tag 'application', media: 'all'
 
+    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js'
+    = javascript_include_tag 'application'
+
     = csrf_meta_tags
 
   %body
@@ -56,13 +59,13 @@
                 = link_to root_url do
                   %i.fa.fa-dashboard.fa-fw
                   Dashboard
-
-              -# %li
-              -#   = link_to root_url do
-              -#     %i.fa.fa-question-circle.fa-fw
-              -#     About
+              %li
+                = link_to '#' do
+                  %i.fa.fa-map-marker.fa-fw
+                  Locations
+                  %span.fa.arrow
+                %ul.nav.nav-second-level
+                  - Location::US.each do |k, v|
+                    %li= link_to k, root_url(location: v)
 
       #page-wrapper= yield
-
-    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js'
-    = javascript_include_tag 'application'

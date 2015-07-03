@@ -26,6 +26,8 @@ class RecallEventsController < ApplicationController
                          @recall_events.class_three
                        end
     end
+
+    @recall_events = @recall_events.where('locations.short_name': params[:location]) if params[:location].present?
   end
 
   # GET /recall_events/1
