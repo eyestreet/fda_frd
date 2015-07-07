@@ -22,10 +22,9 @@
         .panel-heading
           .row
             .col-xs-5
-              -# %i.fa.fa-comments.fa-5x
-              .huge Total
+              .large Total
             .col-xs-7.text-right
-              .huge= @total_count
+              .large= @total_count
         - if params[:classification].present?
           = link_to root_url do
             .panel-footer
@@ -36,14 +35,16 @@
 
     - if params[:classification].blank? || params[:classification] == 'class_one'
       .col-lg-3.col-md-6
-        .panel.panel-info
+        .panel.panel-danger
           .panel-heading
             .row
               .col-xs-6
-                -# %i.fa.fa-tasks.fa-5x
-                .huge Class I
+                .medium Class I
               .col-xs-6.text-right
-                #class_one_count.huge= @class_one_count
+                #class_one_count.medium= @class_one_count
+            .row
+              .col-xs-12
+                %p A dangerous or defective product that predictably could cause serious health problems or death.
           - if params[:classification].blank?
             = link_to root_url( classification: :class_one) do
               .panel-footer
@@ -58,10 +59,12 @@
           .panel-heading
             .row
               .col-xs-6
-                -# %i.fa.fa-shopping-cart.fa-5x
-                .huge Class II
+                .medium Class II
               .col-xs-6.text-right
-                #class_two_count.huge= @class_two_count
+                #class_two_count.medium= @class_two_count
+            .row
+              .col-xs-12
+                %p Meaning that the product might cause a temporary health problem, or pose only a slight threat of a serious nature.
           - if params[:classification].blank?
             = link_to root_url( classification: :class_two) do
               .panel-footer
@@ -72,14 +75,16 @@
 
     - if params[:classification].blank? || params[:classification] == 'class_three'
       .col-lg-3.col-md-6
-        .panel.panel-danger
+        .panel.panel-info
           .panel-heading
             .row
               .col-xs-7
-                -# %i.fa.fa-support.fa-5x
-                .huge Class III
+                .medium Class III
               .col-xs-5.text-right
-                #class_three_count.huge= @class_three_count
+                #class_three_count.medium= @class_three_count
+            .row
+              .col-xs-12
+                %p A product that is unlikely to cause any adverse health reaction, but that violates FDA labeling or manufacturing laws.
           - if params[:classification].blank?
             = link_to root_url( classification: :class_three) do
               .panel-footer

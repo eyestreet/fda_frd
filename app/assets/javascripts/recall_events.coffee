@@ -51,7 +51,7 @@ $ ->
         { label: 'Class II', value: $('#class_two_count').html() },
         { label: 'Class III', value: $('#class_three_count').html() }
       ]
-      colors: ['#5bc0de', '#faebcc', '#ebccd1']
+      colors: ['#ebccd1', '#faebcc', '#5bc0de']
       resize: true
 
   if $('#recall-event-status').length

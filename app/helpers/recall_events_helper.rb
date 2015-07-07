@@ -3,11 +3,11 @@ module RecallEventsHelper
   def classification_class(recall_event)
     case recall_event.classification
     when 'Class I'
-      'info'
+      'danger'
     when 'Class II'
       'warning'
     when 'Class III'
-      'danger'
+      'info'
     end
   end
 end
