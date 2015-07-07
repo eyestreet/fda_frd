@@ -86,7 +86,7 @@ Import data. From the applications root directory and using the ip address from 
     $ cd db
     $ mongorestore -v -h ip-from-boot2docker
 
-In a browser, using the ip address from above, open http://ip-from-boot2docker:5000
+In a browser, using the ip address from above, open http://ip-from-boot2docker:3000
 
 ## License
 
