@@ -36,6 +36,7 @@ gem 'kaminari', '~> 0.16.3'
 gem 'high_voltage', '~> 2.3.0'
 
 gem 'newrelic_rpm'
+gem 'airbrake'
 
 group :development do
   gem 'mechanize', '~> 2.7.3'
