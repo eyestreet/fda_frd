@@ -1,0 +1,34 @@
+geoffroy:
+  firstname: Geoffroy
+  lastname: Planquart
+  main_group: sudoers
+  groups:
+    - print
+    - !ruby/hash
+      name: Test nested polymorphic belongs_to
+      something: orga1 (Organisation)
+    - !ruby/hash
+      name: Test nested has_many creation
+      main_users:
+        - {
+          firstname: 'Created in nested group'
+        }
+  items:
+    - {
+      name: Test
+    }
+user1:
+  firstname: Margot
+  lastname: Last
+  address:
+    city: Strasbourg
+    organisation: orga1
+  homes:
+    - name: Home
+      address:
+        city: Strasbourg
+        real: true
+user 2é:
+  firstname: user2
+  main_group:
+      name: Win?

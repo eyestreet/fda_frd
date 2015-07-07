@@ -1,0 +1,12 @@
+sudoers:
+  name: Sudoers!
+  something: orga1 (Organisation)
+print:
+  name: Print
+  users:
+    - user1
+    - user 2é
+group1:
+  name: Margot
+  main_users:
+    - user1
