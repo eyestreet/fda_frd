@@ -35,6 +35,8 @@ gem 'kaminari', '~> 0.16.3'
 
 gem 'high_voltage', '~> 2.3.0'
 
+gem 'newrelic_rpm'
+
 group :development do
   gem 'mechanize', '~> 2.7.3'
 end
@@ -53,7 +55,7 @@ group :test do
   gem "factory_girl_rails", "~> 4.0"
   gem 'mongoid-rspec', '~> 2.1.0'
 end
-  
+
 group :production do
   gem 'rails_12factor'
 
