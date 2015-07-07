@@ -1,11 +1,181 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+---
+_id: { $oid: 559401ff54617474f6000000 }
+city: "Swainsboro"
+classification: "Class I"
+code_info: "Lot Code: 130912XHB"
+country: "US"
+distribution_pattern: "AL, FL, GA and TN"
+event_id: 66960
+initial_firm_notification: "Telephone"
+initiated_by: "Voluntary: Firm Initiated"
+locations: 
+  - 
+    _id: { $oid: 559401ff54617474f6000001 }
+    coordinates: 
+      - -86.902298
+      - 32.3182314
+    long_name: "Alabama"
+    short_name: "AL"
+  - 
+    _id: { $oid: 559401ff54617474f6000002 }
+    coordinates: 
+      - -81.5157535
+      - 27.6648274
+    long_name: "Florida"
+    short_name: "FL"
+  - 
+    _id: { $oid: 559401ff54617474f6000003 }
+    coordinates: 
+      - -82.9000751
+      - 32.1656221
+    long_name: "Georgia"
+    short_name: "GA"
+  - 
+    _id: { $oid: 559401ff54617474f6000004 }
+    coordinates: 
+      - -86.5804473
+      - 35.5174913
+    long_name: "Tennessee"
+    short_name: "TN"
+product_description: "Heavenly Blue, (Raw milk, salt, culture, coagulant ), Flat Creek Lodge,  367 Bishop Chapel Church Rd, Swainsboro, GA 30401. The raw milk blue cheese is packaged in clear plastic, with sizes ranging from 1/2 lb to whole wheels. "
+product_quantity: "203 lbs"
+product_type: "Food"
+reason_for_recall: "Product was found to be contaminated with Salmonella. "
+recall_initiation_date: { "$date" : "2013-11-22T00:00:00.000Z" }
+recall_number: "F-1437-2014"
+recalling_firm: "Flat Creek Farm & Dairy"
+report_date: { "$date" : "2014-01-29T00:00:00.000Z" }
+state: "GA"
+status: "Ongoing"
+
+---
+_id: { $oid: 559401ff54617474f6000009 }
+city: "Austin"
+classification: "Class I"
+code_info: "Best By dates 01/21/15 to 4/6/15"
+country: "US"
+distribution_pattern: "AR, LA, OK, TX"
+event_id: 70882
+initial_firm_notification: "Press Release"
+initiated_by: "Voluntary: Firm Initiated"
+locations: 
+  - 
+    _id: { $oid: 559401ff54617474f600000a }
+    coordinates: 
+      - -91.8318334
+      - 35.20105
+    long_name: "Arkansas"
+    short_name: "AR"
+  - 
+    _id: { $oid: 559401ff54617474f600000b }
+    coordinates: 
+      - -91.96233269999999
+      - 30.9842977
+    long_name: "Louisiana"
+    short_name: "LA"
+  - 
+    _id: { $oid: 559401ff54617474f600000c }
+    coordinates: 
+      - -97.092877
+      - 35.0077519
+    long_name: "Oklahoma"
+    short_name: "OK"
+  - 
+    _id: { $oid: 559401ff54617474f600000d }
+    coordinates:
+      - -99.9018131
+      - 31.9685988
+    long_name: "Texas"
+    short_name: "TX"
+product_description: "BRAN Whole Foods Market Muffin Bran 6Pk packaged in clear plastic ''clam shell'' containers, NET WT. 12 oz., PLU 24857800499 Dist. by Whole Foods Market Austin, TX 78703"
+product_quantity: "6317 packages"
+product_type: "Food"
+reason_for_recall: "Undeclared milk and eggs."
+recall_initiation_date: { "$date" : "2015-03-31T00:00:00.000Z" }
+recall_number: "F-2441-2015"
+recalling_firm: "Whole Food Market"
+report_date: { "$date" : "2015-06-24T00:00:00.000Z" }
+state: "TX"
+status: "Ongoing"
+
+---
+_id: { $oid: 559401ff54617474f600000e }
+city: "Somerset"
+classification: "Class I"
+code_info: "Lot 14-333"
+country: "US"
+distribution_pattern: "ND"
+event_id: 71146
+initial_firm_notification: "Telephone"
+initiated_by: "Voluntary: Firm Initiated"
+locations: 
+  - 
+    _id: { $oid: 559401ff54617474f600000f }
+    coordinates: 
+      - -101.0020119
+      - 47.5514926
+    long_name: "North Dakota"
+    short_name: "ND"
+product_description: "Desiccated Coconut Distributed by: Phildesco , Inc. Somerset, New Jersey 08873 USA "
+product_quantity: "1000 X 25 lbs. bags - 25,000 lbs. "
+product_type: "Food"
+reason_for_recall: "Desiccated coconut may be contaminated with Salmonella based on third party laboratory testing."
+recall_initiation_date: { "$date" : "2015-04-09T00:00:00.000Z" }
+recall_number: "F-2731-2015"
+recalling_firm: "Phildesco Inc."
+report_date: { "$date" : "2015-06-24T00:00:00.000Z" }
+state: "NJ"
+status: "Ongoing"
+
+---
+_id: { $oid: 559401ff54617474f6000010 }
+city: "Winchester"
+classification: "Class I"
+code_info: "#1 lot of 211/ 3 pk produced on 12/12/13 expires on 12/12/14   #2 lot of 451/3 pk produced on 3/31/14 expires 3/31/15    #3 lot of  454/3 pk produced on 11/5 14 expires on 11/5/15    1116 (three packs) = 3348 singles    UPC#  0-28387-60068-2  "
+country: "US"
+distribution_pattern: "According to firm the distribution pattern is Virginia, West Virginia, Pennsylvania, and Maryland"
+event_id: 71221
+initial_firm_notification: "Other"
+initiated_by: "Voluntary: Firm Initiated"
+locations: 
+  - 
+    _id: { "$oid" : "559401ff54617474f6000011" }
+    coordinates: 
+      - -76.64127119999999
+      - 39.0457549
+    long_name: "Maryland"
+    short_name: "MD"
+  - 
+    _id: { "$oid" : "559401ff54617474f6000012" }
+    coordinates: 
+      - -77.1945247
+      - 41.2033216
+    long_name: "Pennsylvania"
+    short_name: "PA"
+  - 
+    _id: { "$oid" : "559401ff54617474f6000013" }
+    coordinates: 
+      - -78.6568942
+      - 37.4315734
+    long_name: "Virginia"
+    short_name: "VA"
+  - 
+    _id: { "$oid" : "559401ff54617474f6000014" }
+    coordinates: 
+      - -80.4549026
+      - 38.5976262
+    long_name: "West Virginia"
+    short_name: "WV"
+product_description: "Garber's Old Fashioned Ice cream, Birthday Cake Flavored   1.75 quarts, packed in a shrink wrap of 3.    #1 lot of 211/ 3 pk produced on 12/12/13 expires on 12/12/14    #2 lot of 451/3 pk produced on 3/31/14 expires 3/31/15    #3 lot of  454/3 pk produced on 11/5 14 expires on 11/5/15    1116 (three packs) = 3348 singles"
+product_quantity: " 2427 Distributed. 921 still in house"
+product_type: "Food"
+reason_for_recall: "Firm voluntarily recalling 56 oz. Birthday Cake Ice cream due to adding the wrong ingredient into cake.  (eggs added to cake) (undeclared egg allergen). "
+recall_initiation_date: { "$date" : "2015-04-13T00:00:00.000Z" }
+recall_number: "F-2440-2015"
+recalling_firm: "Garber Ice Cream Company Inc"
+report_date: { "$date" : "2015-06-24T00:00:00.000Z" }
+state: "VA"
+status: "Ongoing"
+...

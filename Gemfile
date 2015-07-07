@@ -35,6 +35,9 @@ gem 'kaminari', '~> 0.16.3'
 
 gem 'high_voltage', '~> 2.3.0'
 
+gem 'newrelic_rpm'
+gem 'airbrake'
+
 group :development do
   gem 'mechanize', '~> 2.7.3'
 end
@@ -45,6 +48,13 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   gem 'spring'
+end
+
+group :test do
+  gem 'mongoid-fixture_set'
+  gem 'rspec-rails'
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'mongoid-rspec', '~> 2.1.0'
 end
 
 group :production do
