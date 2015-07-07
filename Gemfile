@@ -47,6 +47,13 @@ group :development, :test do
   gem 'spring'
 end
 
+group :test do
+  gem 'mongoid-fixture_set'
+  gem 'rspec-rails'
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'mongoid-rspec', '~> 2.1.0'
+end
+  
 group :production do
   gem 'rails_12factor'
 
